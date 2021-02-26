@@ -70,7 +70,7 @@ logfile.write("Files will be considered stale if created on : " + str(staledate)
 logfile.write("Valheim directory: " + valheim_directory + "\n")
 logfile.write("Location of backups: " + backup_dir + "\n")
 logfile.write("Name of this backup directory : " + vbackup + "\n")
-logfile.write("Use 7zip is set to: " + use_7zip)
+logfile.write("Use 7zip is set to: " + str(use_7zip))
 
 # Run back up the data
 logfile.write("starting backup.." + "\n")
@@ -90,18 +90,18 @@ else:
   logfile.write("zip complete" + "\n")
 
 if auto_clean == true:
-    # Cleanup stale files
-    # for each file in the backup directory location
-    logfile.write("checking for stale files to delete" + "\n")
-    for filename in os.listdir(backup_dir):
-      # make sure the file is one our backups
-      # by checking if the fileprefix is in the filename
-      if fileprefix in filename:
-          # if the stale date(day_month_year) is in the filename
-          if staledate in filename:
-            logfile.write("removing the stale backup: " + backup_dir+filename + "\n")
-            # delete the file
-            os.remove(backup_dir+filename)
+  # Cleanup stale files
+  # for each file in the backup directory location
+  logfile.write("checking for stale files to delete" + "\n")
+  for filename in os.listdir(backup_dir):
+    # make sure the file is one our backups
+    # by checking if the fileprefix is in the filename
+    if fileprefix in filename:
+        # if the stale date(day_month_year) is in the filename
+        if staledate in filename:
+          logfile.write("removing the stale backup: " + backup_dir+filename + "\n")
+          # delete the file
+          os.remove(backup_dir+filename)
   logfile.write("stale file cleanup completed" + "\n")
 
 logfile.write("backup complete" + "\n")
