@@ -10,7 +10,7 @@ import shutil
 # 2. Backslashes(\) are important too. Where there are two, there need to be.
 ##############################################################################################
 # windows username
-user_name = "hoonea"
+user_name = "your_username_here"
 
 # the location of 7zip
 # this is needed so the script can create an archive file in the backup location you specify
